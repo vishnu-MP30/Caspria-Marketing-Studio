@@ -1,0 +1,312 @@
+/* ── Projects Built with Obsession Section ────────────────────────────── */
+.obsessionSection {
+  position: relative;
+  width: 100%;
+  background-color: #0b0b0c;
+  color: #ffffff;
+  padding: 130px 4vw 160px 4vw;
+  margin: 0;
+  overflow: hidden;
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 900px) {
+  .obsessionSection {
+    padding: 90px 5vw 110px 5vw;
+  }
+}
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────── */
+.headerRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 84px;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 56px;
+  }
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.categoryTag {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(38px, 5.4vw, 70px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  color: #ffffff;
+  margin: 0;
+}
+
+.italicSerif {
+  font-family: var(--font-serif), 'Instrument Serif', 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  display: inline-block;
+}
+
+/* Plus markers across header row (desktop accent) */
+.decorPluses {
+  display: flex;
+  align-items: center;
+  gap: 120px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 22px;
+  font-weight: 300;
+  user-select: none;
+  margin-top: 40px;
+}
+
+@media (max-width: 1180px) {
+  .decorPluses {
+    display: none;
+  }
+}
+
+/* Top Right CTA Pill Button */
+.headerCtaWrap {
+  padding-top: 10px;
+}
+
+.headerPillBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background-color: #ffffff;
+  color: #0b0b0c;
+  padding: 8px 24px 8px 8px;
+  border-radius: 9999px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease,
+              background-color 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.headerPillBtn:hover {
+  background-color: #f4f4f5;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(255, 255, 255, 0.16);
+}
+
+.headerPillIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #0b0b0c;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.headerPillBtn:hover .headerPillIcon {
+  transform: translateX(2px) scale(1.05);
+}
+
+/* ── 2-Column Staggered Grid ─────────────────────────────────────────── */
+.staggeredGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: clamp(32px, 4.2vw, 64px);
+  position: relative;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .staggeredGrid {
+    grid-template-columns: 1fr;
+    row-gap: 60px;
+  }
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(70px, 8vw, 110px);
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(70px, 8vw, 110px);
+  /* The signature offset that starts the right column staggered down */
+  padding-top: 160px;
+}
+
+@media (max-width: 900px) {
+  .rightColumn {
+    padding-top: 0;
+  }
+}
+
+/* ── Project Card ─────────────────────────────────────────────────────── */
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1352 / 960;
+  border-radius: 22px;
+  overflow: hidden;
+  background-color: #17171a;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.projectImage {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform;
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.04) !important;
+}
+
+/* Card Content Details */
+.cardContent {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.cardCategory {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+.cardYear {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+.cardTitle {
+  font-family: var(--font-sans), sans-serif;
+  font-size: clamp(30px, 3.2vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  transition: color 0.2s ease;
+}
+
+.projectCard:hover .cardTitle {
+  color: #f3f3f3;
+}
+
+.cardDesc {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0 0 24px 0;
+  max-width: 520px;
+}
+
+/* Pill Button Below Card */
+.cardBtnWrap {
+  margin-top: 4px;
+}
+
+.cardPillBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  color: #0b0b0c;
+  padding: 8px 22px 8px 8px;
+  border-radius: 9999px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease,
+              background-color 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  width: fit-content;
+}
+
+.cardPillBtn:hover {
+  background-color: #f4f4f5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(255, 255, 255, 0.16);
+}
+
+.cardPillIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #0b0b0c;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.projectCard:hover .cardPillIcon,
+.cardPillBtn:hover .cardPillIcon {
+  transform: translateX(2px);
+}
+
