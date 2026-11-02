@@ -258,7 +258,7 @@ export default function CaspriaAbout() {
             }}
             className={styles.line}
           >
-            Caspria is a{" "}
+            <span>Caspria is a&nbsp;</span>
             <span
               className={`${styles.hl} ${activeKey === "growth" ? styles.active : ""}`}
               data-key="growth"
@@ -275,8 +275,8 @@ export default function CaspriaAbout() {
               }}
             >
               growth marketing
-            </span>{" "}
-            studio that
+            </span>
+            <span>&nbsp;studio that</span>
           </span>
 
           {/* Line 2 */}
@@ -286,7 +286,7 @@ export default function CaspriaAbout() {
             }}
             className={styles.line}
           >
-            shapes{" "}
+            <span>shapes&nbsp;</span>
             <span
               className={`${styles.hl} ${activeKey === "brands" ? styles.active : ""}`}
               data-key="brands"
@@ -304,7 +304,7 @@ export default function CaspriaAbout() {
             >
               brands
             </span>
-            , launches{" "}
+            <span>,&nbsp;launches&nbsp;</span>
             <span
               className={`${styles.hl} ${activeKey === "campaigns" ? styles.active : ""}`}
               data-key="campaigns"
@@ -322,7 +322,7 @@ export default function CaspriaAbout() {
             >
               campaigns
             </span>
-            ,
+            <span>,</span>
           </span>
 
           {/* Line 3 */}
@@ -332,7 +332,7 @@ export default function CaspriaAbout() {
             }}
             className={styles.line}
           >
-            and engineers{" "}
+            <span>and engineers&nbsp;</span>
             <span
               className={`${styles.hl} ${activeKey === "results" ? styles.active : ""}`}
               data-key="results"
@@ -350,7 +350,7 @@ export default function CaspriaAbout() {
             >
               measurable growth
             </span>
-            .
+            <span>.</span>
           </span>
         </p>
 

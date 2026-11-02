@@ -32,8 +32,8 @@ const journalEntries: JournalEntry[] = [
     title: "TAILORING IN TALL GRASS",
     excerpt:
       "Whitlock's tailoring, three models and a field outside Marfa, under a sky that would not clear.",
-    image: "/journal/journal_2.jpg",
-    alt: "Outdoor editorial fashion shoot under natural desert light",
+    image: "/journal/journal_2_red.jpg",
+    alt: "Outdoor editorial fashion shoot under natural desert light in signature red theme",
     link: "#journal",
   },
   {
@@ -42,8 +42,8 @@ const journalEntries: JournalEntry[] = [
     title: "PACKING LIGHT FOR THE ROAD",
     excerpt:
       "What fits in one bag when a job starts in Marfa and ends six hundred miles away.",
-    image: "/journal/journal_3.jpg",
-    alt: "Minimal travel and production gear on location",
+    image: "/journal/journal_3_red.jpg",
+    alt: "Minimal travel and production gear on location in signature red theme",
     link: "#journal",
   },
   {
@@ -200,6 +200,18 @@ export default function JournalAndFooter() {
               <p className={styles.copyText}>
                 © 2026 Caspria Marketing Team LLC ▪ All rights reserved
               </p>
+            </div>
+
+            <div className={styles.poweredCenter}>
+              <a
+                href="https://airizz.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.poweredLink}
+              >
+                <span className={styles.poweredText}>Powered by&nbsp;</span>
+                <span className={styles.poweredBrand}>AIRIZZ</span>
+              </a>
             </div>
 
             <div className={styles.linksRight}>

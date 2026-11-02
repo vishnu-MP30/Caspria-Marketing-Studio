@@ -28,6 +28,13 @@
   }
 }
 
+.navLeft {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .brandLogo {
   font-family: var(--font-inter), -apple-system, sans-serif;
   font-size: 26px;
@@ -35,7 +42,7 @@
   letter-spacing: -0.03em;
   color: #0e0e0e;
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   transition: opacity 0.2s ease;
 }
@@ -45,9 +52,11 @@
 }
 
 .navCenter {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
-  gap: 28px;
+  justify-content: center;
+  gap: 36px;
 }
 
 @media (max-width: 1024px) {
@@ -57,7 +66,7 @@
 }
 
 .navLink {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: #262626;
   text-decoration: none;
@@ -83,9 +92,89 @@
 }
 
 .navRight {
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 16px;
+}
+
+.mobileBackdrop {
+  position: fixed;
+  inset: 0;
+  top: 65px;
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 48;
+}
+
+.mobileDrawer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #f3efe8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  padding: 22px 24px 28px 24px;
+  gap: 12px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+  z-index: 49;
+  animation: mobileSlide 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes mobileSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileNavLink {
+  font-size: 16px;
+  font-weight: 600;
+  color: #262626;
+  text-decoration: none;
+  padding: 10px 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mobileNavLink:hover {
+  color: #ff4726;
+  padding-left: 6px;
+}
+
+.mobileNavLinkActive {
+  color: #ff4726;
+  font-weight: 700;
+}
+
+.mobileContactBtn {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #ff4726;
+  color: #ffffff !important;
+  font-size: 14.5px;
+  font-weight: 600;
+  padding: 13px 26px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 4px 14px rgba(255, 71, 38, 0.3);
+}
+
+.mobileContactBtn:active {
+  transform: scale(0.98);
 }
 
 .contactBtn {
@@ -109,19 +198,49 @@
   box-shadow: 0 6px 18px rgba(255, 71, 38, 0.35);
 }
 
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 20px;
+    background-color: rgba(243, 239, 232, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .brandLogo {
+    font-size: 22px;
+  }
+
+  .contactBtn {
+    display: none;
+  }
+}
+
 .mobileMenuToggle {
   display: none;
-  background: none;
-  border: none;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
   cursor: pointer;
-  padding: 6px;
-  font-size: 22px;
+  padding: 8px 12px;
+  font-size: 18px;
+  line-height: 1;
   color: #111111;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.mobileMenuToggle:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.mobileMenuToggle:active {
+  transform: scale(0.95);
 }
 
 @media (max-width: 1024px) {
   .mobileMenuToggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -195,9 +314,16 @@
   min-height: 480px;
 }
 
-.bannerBgImage {
+.bannerBgImageDesktop {
   object-fit: cover;
   object-position: center center;
+  display: block;
+}
+
+.bannerBgImageMobile {
+  object-fit: cover;
+  object-position: center 18%;
+  display: none;
 }
 
 /* Subtle gradient to ensure bottom white text and buttons stand out */
@@ -226,31 +352,12 @@
   justify-content: space-between;
 }
 
-@media (max-width: 900px) {
-  .bannerInner {
-    padding: 32px 28px;
-  }
-}
-
-@media (max-width: 600px) {
-  .bannerInner {
-    padding: 24px 20px;
-  }
-}
-
-/* Top Stats Row: 10+ / 500M+ / 220+ */
+/* Top Stats Row: 10+ / 500M+ / 220+ (Desktop default) */
 .bannerTopRow {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   width: 100%;
-}
-
-@media (max-width: 640px) {
-  .bannerTopRow {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
 }
 
 .bannerStat {
@@ -266,14 +373,6 @@
 .bannerStatRight {
   align-items: flex-end;
   text-align: right;
-}
-
-@media (max-width: 640px) {
-  .bannerStatCenter,
-  .bannerStatRight {
-    align-items: flex-start;
-    text-align: left;
-  }
 }
 
 .bannerStatNum {
@@ -301,11 +400,134 @@
   width: 100%;
 }
 
-@media (max-width: 900px) {
+/* Responsive Banner Styles: Switches to portrait marketing_bg.png on mobile and keeps 3-col stats */
+@media (max-width: 768px) {
+  .bannerBgImageDesktop {
+    display: none !important;
+  }
+
+  .bannerBgImageMobile {
+    display: block !important;
+  }
+
+  .visualBannerWrap {
+    height: auto;
+    min-height: 600px;
+  }
+
+  .bannerOverlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(180, 10, 0, 0.06) 24%,
+      rgba(160, 5, 0, 0.1) 48%,
+      rgba(140, 5, 0, 0.65) 75%,
+      rgba(70, 0, 0, 0.94) 100%
+    );
+  }
+
+  .bannerInner {
+    padding: 28px 18px 32px 18px;
+    min-height: 600px;
+    justify-content: space-between;
+    gap: 36px;
+  }
+
+  /* Keep 3 stats neatly side-by-side across top on mobile */
+  .bannerTopRow {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+
+  .bannerStat {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .bannerStatCenter {
+    align-items: center;
+    text-align: center;
+  }
+
+  .bannerStatRight {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .bannerStatNum {
+    font-size: clamp(20px, 5.8vw, 28px);
+    line-height: 1.1;
+  }
+
+  .bannerStatLabel {
+    font-size: clamp(10.5px, 2.7vw, 12.5px);
+    line-height: 1.25;
+    margin-top: 3px;
+  }
+
   .bannerBottomRow {
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
+    gap: 18px;
+    width: 100%;
+  }
+
+  .bannerLeftContent {
+    max-width: 100%;
+    gap: 14px;
+  }
+
+  .bannerCopy {
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+
+  .bannerBtnGroup {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .bannerBtnSolid,
+  .bannerBtnOutline {
+    font-size: 12.5px;
+    padding: 10px 18px;
+    white-space: nowrap;
+  }
+
+  .bannerBadgesCol {
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .bannerBadgePill {
+    font-size: 11px;
+    padding: 6px 14px;
+    background: rgba(180, 15, 8, 0.65);
+    white-space: normal;
+  }
+
+  .bannerBadgesRow {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 400px) {
+  .bannerBtnGroup {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bannerBtnSolid,
+  .bannerBtnOutline {
+    justify-content: center;
+    width: 100%;
+    text-align: center;
   }
 }
 

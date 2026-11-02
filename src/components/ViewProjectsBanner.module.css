@@ -26,29 +26,25 @@
   min-height: 100%;
   object-fit: cover;
   object-position: center 40%;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 1;
-}
-
-.bannerWrap:hover .videoBg {
   opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s ease;
+  z-index: 1;
 }
 
 /* Semi-transparent dark overlay to keep text crisp & high-contrast over video */
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.28);
-  opacity: 0;
-  transition: opacity 0.35s ease;
+  background: rgba(0, 0, 0, 0.32);
+  opacity: 1;
+  transition: background-color 0.35s ease;
   pointer-events: none;
   z-index: 2;
 }
 
 .bannerWrap:hover .overlay {
-  opacity: 1;
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .titleContainer {
@@ -84,4 +80,3 @@
   letter-spacing: 0.04em;
   color: #ffffff;
 }
-

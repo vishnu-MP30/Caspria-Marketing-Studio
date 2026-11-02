@@ -35,8 +35,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${anton.variable} ${inter.className}`}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${inter.variable} ${anton.variable} ${inter.className}`}
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>

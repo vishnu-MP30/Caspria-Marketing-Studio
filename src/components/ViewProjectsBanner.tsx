@@ -1,25 +1,34 @@
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useEffect } from "react";
 import Link from "next/link";
 import styles from "./ViewProjectsBanner.module.css";
 
 export default function ViewProjectsBanner() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handleMouseEnter = useCallback(() => {
+  // Automatically start playing on mount
+  useEffect(() => {
     const video = videoRef.current;
     if (video) {
       video.muted = true;
-      video.currentTime = 0; // restart video smoothly from the beginning
       video.play().catch(() => {});
     }
   }, []);
 
-  const handleMouseLeave = useCallback(() => {
+  // When cursor hovers over the banner, pause/stop the video wherever it is
+  const handleMouseEnter = useCallback(() => {
     const video = videoRef.current;
     if (video) {
       video.pause();
+    }
+  }, []);
+
+  // When cursor leaves the banner, continue playing from the current position
+  const handleMouseLeave = useCallback(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.play().catch(() => {});
     }
   }, []);
 
@@ -31,19 +40,20 @@ export default function ViewProjectsBanner() {
       onMouseLeave={handleMouseLeave}
       aria-label="View All Projects"
     >
-      {/* Background Video (plays on hover, paused & hidden on idle) */}
+      {/* Background Video: automatically plays, pauses on cursor hover, resumes when cursor leaves */}
       <video
         ref={videoRef}
         src="/view_project.mp4"
+        autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         className={styles.videoBg}
         aria-hidden="true"
       />
 
-      {/* Dim overlay on hover */}
+      {/* Dim overlay to keep text crisp & high-contrast */}
       <div className={styles.overlay} aria-hidden="true" />
 
       {/* Centered Title */}
@@ -53,4 +63,3 @@ export default function ViewProjectsBanner() {
     </Link>
   );
 }
-

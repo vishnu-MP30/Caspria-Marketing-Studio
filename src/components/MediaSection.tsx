@@ -464,15 +464,21 @@ export default function MediaSection() {
             </Link>
           </div>
           <nav className={styles.navCenter}>
-            <Link href="/works" className={styles.navLink}>
-              WORKS
+            <Link href="/" className={styles.navLink}>
+              HOME
             </Link>
-            <Link href="/works#about" className={styles.navLink}>
+            <Link href="/#services" className={styles.navLink}>
+              SERVICES
+            </Link>
+            <Link href="/works" className={`${styles.navLink} ${styles.navLinkActive}`}>
+              WORK
+            </Link>
+            <Link href="/#about" className={styles.navLink}>
               ABOUT
             </Link>
           </nav>
           <div className={styles.navRight}>
-            <Link href="/works#contact" className={styles.contactLink}>
+            <Link href="/#contact" className={styles.contactLink}>
               CONTACT <span>→</span>
             </Link>
           </div>

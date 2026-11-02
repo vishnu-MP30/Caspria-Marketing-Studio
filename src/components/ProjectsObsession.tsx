@@ -31,7 +31,7 @@ export const portfolioProjects: ProjectItem[] = [
     description:
       "A full identity system — logo, type, color, and voice — built to make the brand feel timeless and unmistakable.",
     image: "/portfolio/aurelia.png",
-    link: "#contact",
+    link: "/works",
   },
   {
     id: "northwind",
@@ -41,7 +41,7 @@ export const portfolioProjects: ProjectItem[] = [
     description:
       "An end-to-end product experience that turns complex flows into something clear, fast, and human.",
     image: "/portfolio/northwind.png",
-    link: "#contact",
+    link: "/works",
   },
   {
     id: "lumen-studio",
@@ -51,7 +51,7 @@ export const portfolioProjects: ProjectItem[] = [
     description:
       "A responsive marketing site designed to build trust, tell the story, and drive conversions.",
     image: "/portfolio/lumen-studio.png",
-    link: "#contact",
+    link: "/works",
   },
   {
     id: "flowframe",
@@ -61,7 +61,7 @@ export const portfolioProjects: ProjectItem[] = [
     description:
       "A fully interactive Framer build with CMS-driven pages, scroll animations, and a scalable component system.",
     image: "/portfolio/flowframe.png",
-    link: "#contact",
+    link: "/works",
   },
 ];
 
@@ -133,7 +133,7 @@ export default function ProjectsObsession() {
 
           {/* Top Right CTA Pill Button */}
           <div className={styles.headerCtaWrap}>
-            <Link href="#contact" className={styles.headerPillBtn}>
+            <Link href="/works" className={styles.headerPillBtn}>
               <span className={styles.headerPillIcon}>→</span>
               <span>View All Work</span>
             </Link>
@@ -153,7 +153,8 @@ export default function ProjectsObsession() {
                     fill
                     sizes="(max-width: 900px) 100vw, 50vw"
                     className={styles.projectImage}
-                    priority={project.id === "aurelia"}
+                    priority
+                    unoptimized
                   />
                 </Link>
 
@@ -188,6 +189,8 @@ export default function ProjectsObsession() {
                     fill
                     sizes="(max-width: 900px) 100vw, 50vw"
                     className={styles.projectImage}
+                    priority
+                    unoptimized
                   />
                 </Link>
 
