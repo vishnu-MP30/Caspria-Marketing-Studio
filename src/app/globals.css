@@ -54,3 +54,25 @@ button {
   background: none;
   font-family: inherit;
 }
+
+/* ── Hide Netlify Injected Badge ─────────────────────────────────────────── */
+#netlify-badge-outer,
+.netlify-badge,
+[data-netlify-badge],
+[class*="netlify-badge"],
+div[id*="netlify-badge"],
+iframe[title*="Netlify"],
+iframe[src*="netlify"],
+a[href*="netlify.com"][class*="badge"],
+a[href*="netlify.com/powered-by"],
+a[href*="netlify.com"][target="_blank"]:has(svg) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  clip-path: inset(100%) !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+}
